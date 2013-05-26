@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Drupal au secours de la méthode R.A.C.H.E</title>
+
+        <meta name="description" content="Drupal au secours de la méthode R.A.C.H.E - La gestion de projet *live* avec Drupal">
+        <meta name="author" content="JoliCode">
+        <!-- Powered by the awesome http://lab.hakim.se/reveal-js/ -->
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/jolicode.css" id="theme">
+
+        <!-- Some more styles not part of the theme -->
+        <style type="text/css">
+            .keepcalm .reveal {
+                background-color: #E31F17;
+            }
+
+            .troll .reveal {
+                background-image: url('images/troll.png');
+                background-repeat: no-repeat;
+                background-position: 110% 10%;
+                background-size: 25%;
+            }
+
+            .spacecat .reveal {
+                background-image: url('images/spacecat.jpg');
+                background-size: cover;
+            }
+
+            .keyboard-help img {
+                height: 1em;
+                vertical-align: text-top;
+                margin: 0!important;
+                margin-left: 20px!important;
+            }
+            .keyboard-help kbd {
+                color: #797979;
+                border: 1px solid #414141;
+                padding: 0 2px;
+            }
+            .keyboard-help {
+                margin-top: 50px!important;
+            }
+        </style>
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+
+                <section>
+                    <h1>Drupal au secours de la méthode R.A.C.H.E</h1>
+                    <!-- <h4>(autrement dit… Drupal en gestion de projet "live")</h4> -->
+
+                    <p class="footnote">(autrement dit… Drupal en gestion de projet "live")</p>
+                </section>
+
+                <section data-state="jolistate">
+                    <h2>Bastien Jaillot</h2>
+
+                    <p>
+                        <a href="https://twitter.com/bastnic">
+                            <img src="images/chouette.jpg" alt="Bastien Jaillot"
+                                 style="width: 30%; vertical-align: middle; background-color: white; padding: 10px;border-radius: 15px" />
+                        </a>
+                    </p>
+
+                    <p>
+                    Je suis <del>fainéant</del> <strong>pragmatique</strong> ಠ_ಠ
+                    </p>
+                </section>
+
+                <section data-state="jolistate">
+                    <p>
+                        <a href="http://jolicode.com">
+                            <img src="./lib/font/logo-fond-noir.svg" alt="JoliCode" />
+                        </a>
+                    </p>
+
+                    <h2>Conseil, réalisation, audit, expertise et formation</h2>
+
+                    <p class="footnote">
+                        ...Poney, Guinness et gif animé.
+                    </p>
+                </section>
+
+                <section>
+                    <p><img src="images/Strips-Hackaton-550-final.jpg" alt=""></p>
+                    <p class="footnote">Source : <a href="http://www.commitstrip.com/fr/2012/09/18/cest-toujours-une-histoire-de-contexte/">http://www.commitstrip.com/fr/2012/09/18/cest-toujours-une-histoire-de-contexte/</a>
+                </section>
+
+                <section>
+                    <h2>Pré-requis</h2>
+
+                    <ul>
+                        <li>Être un <a href="http://gyshido.com/">GyShiDo-San</a></li>
+                        <li>Être fainéant</li>
+                        <li>Connaître l'écosystème Drupal</li>
+                        <li>Découvrir / Apprendre en permanence</li>
+                        <li>Partager</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>GyShiDo-San ?</h2>
+                    <ul>
+                        <li>Relentless Focus</li>
+                        <li>Boring Consistency</li>
+                        <li>No Bullshit</li>
+                        <li>No Meetings</li>
+                        <li>Follow Up</li>
+                        <li>Don't be an Asshole</li>
+                    </ul>
+                    <p class="footnote"><a href="http://gyshido.com/">GyShiDo - The Art of Getting Shit Done. http://gyshido.com/</a></p>
+                </section>
+
+                <section>
+                    <h2>Méthode R.A.C.H.E</h2>
+
+                    <p>Qui-que-quoi-où-quand-comment-pourquoi ?</p>
+                    <p><a href="http://www.la-rache.com/">http://www.la-rache.com/</a></p>
+                </section>
+
+                <section>
+                    <h2>R.A.C.H.E ?</h2>
+                    <ul>
+                        <li><strong>R</strong>apid</li>
+                        <li><strong>A</strong>pplication</li>
+                        <li><strong>C</strong>onception and</li>
+                        <li><strong>H</strong>euristic</li>
+                        <li><strong>E</strong>xtreme-programming</li>
+                    </ul>
+                    <p class="footnote"><a href="http://www.la-rache.com/">http://www.la-rache.com/</a></p>
+                </section>
+
+                <section>
+                    <h2>Cycle typique d'utilisation de la R.A.C.H.E</h2>
+                    <img src="images/cycle-rache.jpg" alt="">
+                    <p class="footnote"><a href="http://www.la-rache.com/">http://www.la-rache.com/</a></p>
+                </section>
+
+                <section>
+                    <blockquote>If you don't care about bugs, design or scalability, it only takes 2 days to build anything</blockquote>
+                    <p class="footnote"><a href="https://twitter.com/polotek/status/312673667484106752">https://twitter.com/polotek/status/312673667484106752</a></p>
+                </section>
+
+                <section>
+                    <h3>Pas la méthode de gestion de projets de tous les jours</h3>
+
+                    <p>enfin, <em>j'espère</em>…</p>
+                </section>
+
+                <section>
+                    <p>Arrangeons nous pour avoir <strong>mieux</strong> que ça,<br> dans la <strong>même durée</strong></p>
+                </section>
+
+                <section>
+                    <h3>Le projet : plateforme de participation citoyenne</h3>
+                    <ul>
+                        <li>Projet de cinq citoyens</li>
+                        <li>Deux experts Web (Simon Perdrisat <a href="http://twitter.com/gagarine">@gagarine</a> et moi)</li>
+                        <li>Serveur dédié à disposition</li>
+                        <li>Possibilité d'utiliser plein de briques connues et fun (K/V store, lucene index, message queuing, asynchrone, near-realtime computing)</li>
+                        <li><a href="https://www.parlement-et-citoyens.fr">https://www.parlement-et-citoyens.fr</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Le projet : plateforme de participation citoyenne</h3>
+                    <ul>
+                        <li>Très très peu de temps </li>
+                        <li>Risque d'engranger beaucoup de données (cool, cool, cool)</li>
+                        <li>Aucune idée de l'avenir du projet ? (à j+1) : LIVE!</li>
+                        <li>Et donc… très très peu de temps</li>
+                        <li><a href="https://www.parlement-et-citoyens.fr">https://www.parlement-et-citoyens.fr</a></li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <section>
+                        <h2>Étape 0 : réduction du périmètre</h2>
+                        <p>Toujours, encore,… et encore !</p>
+                    </section>
+                    <section>
+                        <p>Rappel : on ne sait pas comment le site va évoluer, pourquoi prédire ? Mettons nous en situation de réaction efficace</p>
+                        <p>Donc réduction du périmètre par 4, plein de pages prétenduement dynamique => statique + text filter </p>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Étape 1 : DDSD</h2>
+                    <p><strong>D</strong>ata <strong>D</strong>riven <strong>S</strong>cript <strong>D</strong>evelopment</p>
+                </section>
+
+                <section>
+                    <h3>DDSD – étape 1.1</h3>
+                    <p>Contenu (structuré, mais encore inconnu) sur lequel on peut intéragir</p>
+                    <p>Cette structure est la traduction d'une méthode calculée de longue date</p>
+                </section>
+
+                <section>
+                    <img src="images/schema.png" alt="">
+                </section>
+
+                <section>
+                    <section>
+                        <img src="images/schema-avis.png" alt="">
+                    </section>
+                    <section>
+                        <h3>DDSD – étape 1</h3>
+                        <p>Ce qu'on a obtenu au final</p>
+                        <ul>
+                            <li>Enquête : node</li>
+                            <li>Élément d'enquêtes : entity (eck)</li>
+                            <li>Arborescence d'élément d'enquêtes : entity (eck)</li>
+                            <li>Source : entity (eck)</li>
+                            <li>Intérêt de la source : entity (eck)</li>
+                            <li>Avis : entity (eck)</li>
+                            <li>Élément d'avis : entity (eck)</li>
+                            <li>le tout relié dans tous les sens par entityreference</li>
+                        </ul>
+                    </section>
+                </section>
+
+
+
+
+                <section>
+                    <h3>DDSD – étape 1</h3>
+                    <p>Trop compliqué pour saisir à la main à chaque tentative => SCRIPT</p>
+                    <p>Jusque là, un framework avec le schéma dans un fichier + fixtures ce serait mieux</p>
+                    <p>mais justement, avec Drupal on y arrive quand même, tout en ayant un vrai BO</p>
+                    <p>on se moque de l'ergonomie pour l'instant. Contenu admin créé directement par un script</p>
+                </section>
+
+
+                <section>
+                    <h3>DDSD – étape 1</h3>
+                    <p>un tel niveau de contenu est trom complexe pour "simplement" contribuer</p>
+                    <p>prévu : multiple entity_inline_form avec eck (=> à l'époque ça n'était pas possible, ça l'est devenu</p>
+                    <p>nous n'avions aucune idée de comment le contenu évoluerait, si les visiteurs contribueront, de la qualité du contenu, tout ça</p>
+                </section>
+
+                <section>
+                    <h3>Jusque là, un symfony serait bien meilleur et plus efficace</h3>
+                    <p>mais rappeler vous la courbe de progression. La motivation est facile au début du projet. Avec un framework il faut développer toute la suite, avec Drupal, des dizaines de milliers de modules à disposition pour ajouter du fonctionnel (forum, intégration sociales, contenu)</p>
+                    <p>Les contributeurs peuvent faire vivre le site sans aide d'un technique</p>
+                </section>
+
+                <section>
+                    <h3>Développement prévus != développement effectués</h3>
+                    <p>Exemple : pas encore de gestion de la poubelle : aucun contenu frauduleux reçu (qui l'eu cru !)</p>
+                </section>
+
+
+                <section>
+                    <h2>Quelques exemples supra utiles</h2>
+                    <ul>
+                        <li>Cache</li>
+                        <li>Voting API</li>
+                        <li>Search API</li>
+                        <li>Entity References + contrib</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Gestion du cache</h2>
+                    <ul>
+                        <li>1ère itération : cache de base en bases de données</li>
+                        <li>Ajout entitycache</li>
+                        <li>Pré-calcul de plein de choses dans entitycache</li>
+                        <li>Utilisation de <a href="http://redis.io/">redis</a></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Module ECK</h2>
+                    <ul>
+                        <li>UI pour créer des entités / bundle / configurer champs</li>
+                        <li>Exportable</li>
+                        <li>Mais des manques
+                            <ul>
+                                <li>Pas de cache sur les propriétés des entités / bundle => patch commité</li>
+                                <li>Pas d'intégration avec entitycache => nouveau module ok</li>
+                                <li>Pas d'intégration avec Inline Entity Form => patch commité</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <h2>Ce que je ferais au prochain projet</h2>
+                    <p>Configurer tout le serveur avec Chef</p>
+                    <p>Include dès le départ une logique de statistique => statsd + graphite (ou un service équivalent : datadog</p>
+                </section>
+
+                <section>
+                    <h2>Configuration serveur et déploiement avec Chef</h2>
+                    <p>TODO</p>
+                </section>
+
+                <section>
+                    <h2>Dashboard applicatif</h2>
+                    <p><img src="images/datadog-live.png" alt=""></p>
+                </section>
+
+                <section>
+                    <h2>Aggrégation de data : StatsD + Datadog</h2>
+                    <p>Gratuit avec un jour de rétention et intégré avec Chef</p>
+                    <p>$15 / mois par serveur pour un an de rétention + gestion des alertes</p>
+                    <p>Encore mieux : New Relic</p>
+                    <p>Stack serveur open source existe, mais en R.A.C.H.E, on ne passe pas plus de 10mn à mettre en place un service !</p>
+                </section>
+
+                <section>
+                    <h2>Extrapolation aux projets de tous les jours ?</h2>
+                </section>
+
+                <section>
+                    <blockquote>Build it, release it, analyse it and only then decide if it needs optimising.</blockquote>
+                    <p class="footnote"><a href="https://medium.com/i-m-h-o/eef96ea6f4cb">https://medium.com/i-m-h-o/eef96ea6f4cb</a></p>
+                </section>
+
+                <section>
+                    <blockquote>L’Agilité c’est : comment travailler dans l’incertitude et dans l’ignorance (celle des évolutions technologiques, des clients, des marchés, etc.).</blockquote>
+                    <p class="footnote"><a href="http://www.christian-faure.net/2013/05/25/critique-des-demarches-agiles/">Christian Fauré – Critique des démarches agiles</a></p>
+                </section>
+
+                <section>
+                    <blockquote>un début de projet en mode R.A.C.H.E. ?<br> "un démarrache"</blockquote>
+                    <p class="footnote"><a href="http://twitter.com/brunobord/status/337120241811333120">http://twitter.com/brunobord/status/337120241811333120</a></p>
+                </section>
+
+                <section data-state="jolistate">
+
+                    <img src="images/love.gif" alt="Love you all!" style="width: 80%"/>
+
+                    <p>
+                        Bastien Jaillot / @bastnic<br />
+                        coucou@jolicode.com
+                    </p>
+
+                    <p><a href="http://jolicode.github.io/drupal-methode-rache">http://jolicode.github.io/drupal-methode-rache</a></p>
+                </section>
+            </div>
+
+        </div>
+
+        <footer class="joli">
+            Drupal au secours de la méthode R.A.C.H.E - Drupal Meetup Paris Mai 2013 - <a href="http://jolicode.com/"><img src="./lib/font/logo-fond-noir.svg" alt="JoliCode" height="16px" style="vertical-align: middle" /></a> - Bastien Jaillot
+        </footer>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
+<!-- plop -->
