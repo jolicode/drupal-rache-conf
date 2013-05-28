@@ -197,6 +197,10 @@
                     </ul>
                 </section>
 
+                <section>
+                    <h3>Le projet : plateforme de participation citoyenne</h3>
+                    <p>Pas un défi technique mais un défi fonctionnel et humain. ne laissez pas la technique ralentir le projet</p>
+                </section>
 
                 <section>
                     <section>
@@ -286,13 +290,50 @@
                 </section>
 
                 <section>
-                    <h2>Gestion du cache</h2>
-                    <ul>
-                        <li>1ère itération : cache de base en bases de données</li>
-                        <li>Ajout entitycache</li>
-                        <li>Pré-calcul de plein de choses dans entitycache</li>
-                        <li>Utilisation de <a href="http://redis.io/">redis</a></li>
-                    </ul>
+                    <section>
+                        <h2>Gestion du cache</h2>
+                        <p>Éviter les optimisations préventives, tout en sachant que c'est facile de mettre en place après
+</p>
+                        <ul>
+                            <li>1ère itération : cache de base en bases de données</li>
+                            <li>Utilisation de Search API</li>
+                            <li>Ajout d'<a href="https://drupal.org/project/entitycache">Entity Cache</a></li>
+                            <li>Invalidation + regénération événementielle du cache</li>
+                            <li>Pré-calcul de plein de choses dans Entity Cache</li>
+                            <li>Utilisation de <a href="http://redis.io/">redis</a></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <pre><code data-trim>
+/**
+ * Implements hook_entity_load().
+ *
+ * Will be CACHED in redis once for all
+ */
+function smg_concertation_entity_load($entities, $type) {
+  if ($type == SOMETHING_INTERESTING) {
+    $something = make_a_big_calcul($entities);
+
+    foreach ($entities as $entity) {
+      $entity->precalculated_value = $something[$entity->id];
+    }
+  }
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Sont pré-calculées</h3>
+                        <!-- <p></p> -->
+                        <ul>
+                            <li>informati</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section>
@@ -300,16 +341,50 @@
                     <ul>
                         <li>UI pour créer des entités / bundle / configurer champs</li>
                         <li>Exportable</li>
-                        <li>Mais des manques
+                        <li>Mais des manques, <strong>comblés depuis</strong> :
                             <ul>
-                                <li>Pas de cache sur les propriétés des entités / bundle => patch commité</li>
-                                <li>Pas d'intégration avec entitycache => nouveau module ok</li>
-                                <li>Pas d'intégration avec Inline Entity Form => patch commité</li>
+                                <li>Pas de cache sur les propriétés des entités / bundle => patch commité (<a href="http://drupal.org/node/1914746">#1914746</a>)</li>
+                                <li>Pas d'intégration avec entitycache => nouveau module ok (<a href="http://drupal.org/node/1506468">#1506468</a>)</li>
+                                <li>Pas d'intégration avec Inline Entity Form => patch commité (<a href="http://drupal.org/node/1689726">#1689726</a>)</li>
                             </ul>
                         </li>
                     </ul>
                 </section>
 
+                <section>
+                    <h2>Module Voting API et consorts</h2>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li>Mais des manques, <strong>comblés depuis</strong> :
+                            <ul>
+                                <li>is_useful, bonne logique mais mauvais rendu => surcharge js</li>
+                                <li>trois requetes sql par entité affichées. j'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
+                                <li>un form généré pour chaque affichage, car pas de gestion de permission => surcharge du formatttr pour unrquement afficher les données quand pas authentifié, </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Module Search API et consorts</h2>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li>Mais des manques, <strong>comblés depuis</strong> :
+                            <ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Autres détails</h2>
+                    <ul>
+                        <li>Thème basé sur <a href="http://drupal.org/project/mothership">mothership</a> + <a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> pour un thème propre, simple et passe partout</li>
+                        <li>Page d'accueil = un node blindé d'html + ouput filter</li>
+                    </ul>
+                </section>
 
                 <section>
                     <h2>Ce que je ferais au prochain projet</h2>
@@ -323,8 +398,20 @@
                 </section>
 
                 <section>
-                    <h2>Dashboard applicatif</h2>
-                    <p><img src="images/datadog-live.png" alt=""></p>
+                    <section>
+                        <h2>Dashboard applicatif</h2>
+                        <p><img src="images/datadog-live.png" alt=""></p>
+                    </section>
+                    <section>
+                        <h3>Exemple des métriques</h3>
+                        <ul>
+                            <li>nombre d'erreurs 404 / 500 </li>
+                            <li>temps de génération des pages</li>
+                            <li>nombre de pages en cache / générées from scratch</li>
+                            <li>nombre d'utilisateurs</li>
+                            <li>nombre de blocs générés</li>
+                        </ul>
+                    </section>
                 </section>
 
                 <section>
