@@ -136,6 +136,10 @@ strong {
   color: #fff;
   background: #a98a0e; }
 
+.reveal section p .roll {
+  line-height: 1.5em;
+}
+
 /*********************************************
  * IMAGES
  *********************************************/
