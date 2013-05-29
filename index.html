@@ -239,6 +239,44 @@
                 </section>
 
                 <section>
+                    <section>
+                    <h2>Étape 0.5 : Init du projet</h2>
+
+                        <pre><code data-trim>
+$ mkdir alarrache && cd alarrache
+$ git init
+$ drush make --prepare-install --force-complete  makefile.make drupal
+$ cd drupal
+$ drush si minimal
+  --account-mail=bjaillot@jolicode.com
+  --account-name=admin
+  --account-pass=admin
+  --clean-url
+  --db-url=”mysql://root:root@localhost/alarrache
+  --site-mail=”bjaillot@jolicode.com”
+  --site-name=”Projet qui ne vas pas craindre
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                    <h2>Étape 0.5 : Init du projet</h2>
+
+                        <pre><code data-trim>
+$ drush en admin_menu admin_menu_toolbar admin_views ctools context … big list of modules
+$ drush mothership alarrache --site-name=all
+$ drush vset admin_theme fubik
+$ drush vset node_admin_theme 1
+$ drush vset theme_default alarrache
+
+$ drush l10n-update-refresh && drush l10n-update --languages=fr
+
+
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
                     <h2>Étape 1 : DDSD</h2>
                     <p><strong>D</strong>ata <strong>D</strong>riven <strong>S</strong>cript <strong>D</strong>evelopment</p>
                 </section>
