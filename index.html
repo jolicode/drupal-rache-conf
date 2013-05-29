@@ -118,7 +118,7 @@
                         <li>Dev 1 : Tu rigoles ? C'est beaucoup trop court</li>
                         <li>DT : Prévois au moins 8 jours</li>
                     </ul>
-                    <ul style="display: inline-block; width: 44%; vertical-align: top;">
+                    <ul style="display: inline-block; margin-left: 12%; width: 44%; vertical-align: top;">
                         <li><strong>Pour un projet d'Hackaton</strong></li>
                         <li>Le CP : bon les gars, il reste 24h, vous pensez que c'est jouable ? ?</li>
                         <li>Dev 1 : T'inquiètes</li>
@@ -186,13 +186,11 @@
                 </section>
 
                 <section>
-                    <h3>Pas la méthode de gestion de projets de tous les jours</h3>
-
-                    <p>enfin, <em>j'espère</em>…</p>
+                    <h3>Une méthode pour des projets <strong>sans</strong> gestion de projet</h3>
                 </section>
 
                 <section>
-                    <p>Arrangeons nous pour avoir <strong>mieux</strong> que ça,<br> dans la <strong>même durée</strong></p>
+                    <p>Essayons de faire <strong>mieux</strong>,<br> dans la <strong>même durée</strong></p>
                 </section>
 
                 <section>
@@ -201,7 +199,7 @@
                         <li>Projet de cinq citoyens</li>
                         <li>Deux experts Web (Simon Perdrisat <a href="http://twitter.com/gagarine">@gagarine</a> et moi)</li>
                         <li>Serveur dédié à disposition</li>
-                        <li>Possibilité d'utiliser plein de briques connues et fun (K/V store, (lucene) index, message queuing, asynchrone, near-realtime computing)</li>
+                        <li>Liberté d'utiliser des briques logicielles… fun (K/V store, (lucene) index, message queuing, asynchrone, near-realtime computing)</li>
                         <li><a href="https://www.parlement-et-citoyens.fr">https://www.parlement-et-citoyens.fr</a></li>
                     </ul>
                 </section>
@@ -275,15 +273,27 @@
 
 
                 <section>
-                    <h3>DDSD – étape 1</h3>
-                    <ul>
-                        <li>Contenu trop complexe à contribuer
-                            <ul>
-                                <li>Pas le temps de préparer une UI</li>
-                                <li>Fixtures + script pour importer</li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <section>
+                        <h3>DDSD – étape 1</h3>
+                        <ul>
+                            <li>Contenu trop complexe à contribuer
+                                <ul>
+                                    <li>Pas le temps de préparer une UI</li>
+                                    <li>Fixtures + script pour importer</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>DDSD – sous le capot</h3>
+                        <ul>
+                            <li><a href="https://github.com/symfony/Yaml/">loader Yaml (Symfony Component)</a></li>
+                            <li>Drush</li>
+                            <li>yaml file (one per enquete)</li>
+                            <li>Merci <a href="http://drupalcontrib.org/api/drupal/contributions%21entity%21includes%21entity.property.inc/function/entity_property_values_create_entity/7">entity_property_values_create_entity</a></li>
+                        </ul>
+                    </section>
                 </section>
 
 
@@ -317,7 +327,7 @@
 
                 <section>
                     <h3>Développements prévus != développements effectués</h3>
-                    <p>Exemple : pas encore de gestion de la poubelle : aucun contenu frauduleux reçu (qui l'eu cru !)</p>
+                    <p>Exemple : pas encore de gestion de la poubelle : aucun spam, contenu injurieux reçu (qui l'eu cru !)</p>
                 </section>
 
 
@@ -337,14 +347,14 @@
                         <h2>Gestion du cache</h2>
                         <p>Éviter les optimisations préventives, tout en sachant que c'est facile de mettre en place après</p>
 </p>
-                        <ul>
-                            <li>1ère itération : cache de base en bases de données</li>
+                        <ol>
+                            <li>Cache de base en bases de données</li>
                             <li>Utilisation de Search API</li>
                             <li>Ajout d'<a href="https://drupal.org/project/entitycache">Entity Cache</a></li>
                             <li>Invalidation + regénération événementielle du cache</li>
                             <li>Pré-calcul de plein de choses dans Entity Cache</li>
                             <li>Utilisation de <a href="http://redis.io/">redis</a></li>
-                        </ul>
+                        </ol>
                     </section>
 
                     <section>
@@ -417,14 +427,14 @@ function smg_concertation_entity_load($entities, $type) {
                             <ul>
                                 <li>is_useful, bonne logique mais mauvais rendu => surcharge js</li>
                                 <li>trois requêtes sql par entité affichée. J'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
-                                <li>un form généré pour chaque affichage => surcharge du formattter pour unrquement afficher les données quand pas authentifié, </li>
+                                <li>un form généré pour chaque affichage => surcharge du formattter pour uniquement afficher les données quand pas authentifié, </li>
                             </ul>
                         </li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Autres détails</h2>
+                    <h2>Quelques astuces supplémentaires</h2>
                     <ul>
                         <li>Utilisation de <a href="http://mandrill.com/">Mandrill</a> pour envoyer les mails transactionnels (<a href="http://drupal.org/project/mandrill">module</a>)</li>
                         <li>Thème basé sur <a href="http://drupal.org/project/mothership">mothership</a> + <a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> pour un thème propre, simple et passe partout</li>
@@ -434,11 +444,21 @@ function smg_concertation_entity_load($entities, $type) {
                 </section>
 
                 <section>
+                    <h2>Et des bonus</h2>
+                   <ul>
+                        <li>Backup automatique avec Drush</li>
+                        <li>Tout est rejouable (features, script)</li>
+                        <li>Multi-site dès le départ</li>
+                        <li>… un CMS complet à disposition !</li>
+                    </ul>
+                </section>
+
+                <section>
                     <h2>Ce que je ferais au prochain projet</h2>
 
                     <ul>
                     <li>Configurer tout le serveur avec Chef</p>
-                    <li>Include dès le départ une logique de statistiques => statsd + graphite
+                    <li>Inclure dès le départ une logique de statistiques => statsd + graphite
                     (ou un service équivalent : datadog)</li>
 
                     </ul>
@@ -446,7 +466,10 @@ function smg_concertation_entity_load($entities, $type) {
 
                 <section>
                     <h2>Configuration serveur et déploiement avec Chef</h2>
-                    <p>Logiciel de gestion de configuration, gestion de rôles, recettes, déploiement, environnement.</p>
+                    <ul>
+                        <li>Logiciel de gestion de configuration, gestion de rôles, recettes, déploiement, environnement.</li>
+                        <li>Automatisation, industrialisation facile à utiliser</li>
+                    </ul>
                 </section>
 
                 <section>
