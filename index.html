@@ -226,7 +226,7 @@
                 <section>
                     <section>
                         <h2>Étape 0 : réduction du périmètre</h2>
-                        <p>Toujours, encore,… et encore !</p>
+                        <p>Toujours, encore, … et encore !</p>
                     </section>
                     <section>
                         <p>Rappel : on ne sait pas comment le site va évoluer, pourquoi prédire ? Mettons nous en situation de réaction efficace</p>
@@ -290,7 +290,7 @@
                     <ul>
                     <li>un tel niveau de contenu est trop complexe pour "simplement" contribuer</li>
                     <li>prévu : multiple entity_inline_form avec eck (=> à l'époque ça n'était pas 
-                    possible, ça l'est devenu</li>
+                    possible, ça l'est devenu)</li>
                     <li>nous n'avions aucune idée de comment le contenu évoluerait, si les 
                     visiteurs contribueront, de la qualité du contenu, tout ça</li>
                     </ul>
@@ -302,7 +302,7 @@
                     <ul>
                     <li>mais rappelez vous la courbe de progression. La motivation est facile au début du projet. 
                     Avec un framework il faut développer toute la suite, avec Drupal, des dizaines de 
-                    milliers de modules à disposition pour ajouter du fonctionnel (forum, intégration sociales, 
+                    milliers de modules à disposition pour ajouter du fonctionnel (forum, intégrations sociales, 
                     contenu)</li>
                     <li>Les contributeurs peuvent faire vivre le site sans aide d'un technique</li>
                     </ul>
@@ -314,7 +314,7 @@
                 </section>
 
                 <section>
-                    <h3>Développement prévus != développement effectués</h3>
+                    <h3>Développements prévus != développements effectués</h3>
                     <p>Exemple : pas encore de gestion de la poubelle : aucun contenu frauduleux reçu (qui l'eu cru !)</p>
                 </section>
 
@@ -409,11 +409,11 @@ function smg_concertation_entity_load($entities, $type) {
                     <h2>Module Voting API et consorts</h2>
                     <ul>
                         <li>Gestion du cache</li>
-                        <li>Plusieurs widget</li>
+                        <li>Plusieurs widgets</li>
                         <li>Mais des manques, <strong>comblés depuis</strong> :
                             <ul>
                                 <li>is_useful, bonne logique mais mauvais rendu => surcharge js</li>
-                                <li>trois requetes sql par entité affichées. j'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
+                                <li>trois requêtes sql par entité affichée. J'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
                                 <li>un form généré pour chaque affichage => surcharge du formattter pour unrquement afficher les données quand pas authentifié, </li>
                             </ul>
                         </li>
@@ -425,7 +425,7 @@ function smg_concertation_entity_load($entities, $type) {
                     <ul>
                         <li>Thème basé sur <a href="http://drupal.org/project/mothership">mothership</a> + <a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> pour un thème propre, simple et passe partout</li>
                         <li>Page d'accueil = un node blindé d'html + ouput filter</li>
-                        <li><a href="http://drupal.org/project/community_tags">Community tags</a> intégré avec des entities (patch à nettoyer et proposer)</li>
+                        <li><a href="http://drupal.org/project/community_tags">Community tags</a> intégré avec des entities (patch à nettoyer et à proposer)</li>
                     </ul>
                 </section>
 
@@ -434,7 +434,7 @@ function smg_concertation_entity_load($entities, $type) {
                     
                     <ul>
                     <li>Configurer tout le serveur avec Chef</p>
-                    <li>Include dès le départ une logique de statistique => statsd + graphite
+                    <li>Include dès le départ une logique de statistiques => statsd + graphite
                     (ou un service équivalent : datadog)</li>
                 
                     </ul>
