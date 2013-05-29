@@ -315,14 +315,14 @@
                 </section> -->
 
                 <section>
-                    <h3>Jusque là, un symfony serait bien meilleur et plus efficace</h3>
+                    <h3>Jusque-là, un symfony serait bien meilleur et plus efficace</h3>
 
                     <ul>
 <!--                     <li>mais rappelez vous la courbe de progression. La motivation est facile au début du projet.
                     Avec un framework il faut développer toute la suite, avec Drupal, des dizaines de
                     milliers de modules à disposition pour ajouter du fonctionnel (forum, intégrations sociales,
                     contenu)</li> -->
-                    <li>Mais… les contributeurs doivent peuvoir faire vivre le site sans aide technique</li>
+                    <li>Mais… les contributeurs doivent pouvoir faire vivre le site sans aide technique</li>
                     </ul>
                 </section>
 
@@ -333,7 +333,7 @@
 
                 <section>
                     <h3>Développements prévus != développements effectués</h3>
-                    <p>Exemple : pas encore de gestion de la poubelle : aucun spam, contenu injurieux reçu (qui l'eu cru !)</p>
+                    <p>Exemple : pas encore de gestion de la poubelle : aucun spam, contenu injurieux reçu (qui l'eût cru !)</p>
                 </section>
 
 
@@ -388,7 +388,7 @@ function smg_concertation_entity_load($entities, $type) {
                         <ul>
                             <li>tous les compteurs</li>
                             <li>liaisons avec les comptes utilisateurs (logo, nom, etc.)</li>
-                            <li>permalink (liens vers une recherche à facette</li>
+                            <li>permalink (liens vers une recherche à facette)</li>
                             <li>sous items pré-fetchés</li>
                             <li>vote activé ou pas</li>
                         </ul>
@@ -425,18 +425,54 @@ function smg_concertation_entity_load($entities, $type) {
                 </section>
 
                 <section>
-                    <h2>Module Voting API et consorts</h2>
-                    <ul>
-                        <li>Gestion du cache</li>
-                        <li>Plusieurs widgets</li>
-                        <li>Mais des manques, <strong>comblés depuis</strong> :
-                            <ul>
-                                <li>is_useful, bonne logique mais mauvais rendu => surcharge js</li>
-                                <li>trois requêtes sql par entité affichée. J'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
-                                <li>un form généré pour chaque affichage => surcharge du formattter pour uniquement afficher les données quand pas authentifié, </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <section>
+                        <h2>Module Voting API et consorts</h2>
+                        <ul>
+                            <li>Gestion du cache</li>
+                            <li>Plusieurs widgets</li>
+                            <li>Mais des manques, <strong>comblés depuis</strong> :
+                                <ul>
+                                    <li>is_useful, bonne logique mais mauvais rendu => surcharge js</li>
+                                    <li>trois requêtes sql par entité affichée. J'en avais >200 par page à cause de mon contenu arborescent, surcharge du formatter (ou patch, me rappelle plus)</li>
+                                    <li>un form généré pour chaque affichage => surcharge du formattter pour uniquement afficher les données quand pas authentifié</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+
+                    <section>
+                        <pre><code data-trim>
+// hook_field_prepare_view take an array of entity,
+// not one entity
+
+// override formatter
+function smg_voting_field_formatter_info() {
+  return array(
+    'smg_voting_formatter_default' => array(
+      'label' => t('SMG Voting Default'),
+      'field types' => array('is_useful'),
+    ),
+  );
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+/**
+ * Implementation of hook_field_formatter_view().
+ */
+function smg_voting_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  if (!user_is_logged_in()) { // should be a permission check ;)
+    return 'blabla html';
+  }
+
+  // some code
+  $element[0] = drupal_get_form('is_useful_exposed_formatter', $settings);
+  return $element;
+}
+                        </code></pre>
+                    </section>
                 </section>
 
                 <section>
@@ -493,6 +529,18 @@ function smg_concertation_entity_load($entities, $type) {
                             <li>nombre d'utilisateurs</li>
                             <li>nombre de blocs générés</li>
                         </ul>
+                    </section>
+                    <section>
+                        <pre><code data-trim>
+// # Exemples d'API
+
+StatsD::increment('opengov.action.vote');
+
+StatsD::timing('opengov.page.render', $time);
+
+StatsD::gauge('opengov.count.users', $count);
+
+                        </code></pre>
                     </section>
                 </section>
 
