@@ -219,7 +219,7 @@
 
                 <section>
                     <h3>Le projet : plateforme de participation citoyenne</h3>
-                    <p>Pas un défi technique mais un défi fonctionnel et humain. 
+                    <p>Pas un défi technique mais un défi fonctionnel et humain.
                     Ne laissez pas la technique ralentir le projet.</p>
                 </section>
 
@@ -289,20 +289,20 @@
                     <h3>DDSD – étape 1</h3>
                     <ul>
                     <li>un tel niveau de contenu est trop complexe pour "simplement" contribuer</li>
-                    <li>prévu : multiple entity_inline_form avec eck (=> à l'époque ça n'était pas 
+                    <li>prévu : multiple entity_inline_form avec eck (=> à l'époque ça n'était pas
                     possible, ça l'est devenu)</li>
-                    <li>nous n'avions aucune idée de comment le contenu évoluerait, si les 
+                    <li>nous n'avions aucune idée de comment le contenu évoluerait, si les
                     visiteurs contribueront, de la qualité du contenu, tout ça</li>
                     </ul>
                 </section>
 
                 <section>
                     <h3>Jusque là, un symfony serait bien meilleur et plus efficace</h3>
-                    
+
                     <ul>
-                    <li>mais rappelez vous la courbe de progression. La motivation est facile au début du projet. 
-                    Avec un framework il faut développer toute la suite, avec Drupal, des dizaines de 
-                    milliers de modules à disposition pour ajouter du fonctionnel (forum, intégrations sociales, 
+                    <li>mais rappelez vous la courbe de progression. La motivation est facile au début du projet.
+                    Avec un framework il faut développer toute la suite, avec Drupal, des dizaines de
+                    milliers de modules à disposition pour ajouter du fonctionnel (forum, intégrations sociales,
                     contenu)</li>
                     <li>Les contributeurs peuvent faire vivre le site sans aide d'un technique</li>
                     </ul>
@@ -323,9 +323,10 @@
                     <h2>Quelques exemples supra utiles</h2>
                     <ul>
                         <li>Cache</li>
+                        <li>Entity Construction Kit (ECK)</li>
                         <li>Voting API</li>
                         <li>Search API</li>
-                        <li>Entity References + contrib</li>
+                        <!-- <li>Entity References + contrib</li> -->
                     </ul>
                 </section>
 
@@ -423,20 +424,21 @@ function smg_concertation_entity_load($entities, $type) {
                 <section>
                     <h2>Autres détails</h2>
                     <ul>
+                        <li>Utilisation de <a href="http://mandrill.com/">Mandrill</a> pour envoyer les mails transactionnels (<a href="http://drupal.org/project/mandrill">module</a>)</li>
                         <li>Thème basé sur <a href="http://drupal.org/project/mothership">mothership</a> + <a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> pour un thème propre, simple et passe partout</li>
-                        <li>Page d'accueil = un node blindé d'html + ouput filter</li>
+                        <li>Page d'accueil = un node blindé d'html + ouput filter (même pas honte)</li>
                         <li><a href="http://drupal.org/project/community_tags">Community tags</a> intégré avec des entities (patch à nettoyer et à proposer)</li>
                     </ul>
                 </section>
 
                 <section>
                     <h2>Ce que je ferais au prochain projet</h2>
-                    
+
                     <ul>
                     <li>Configurer tout le serveur avec Chef</p>
                     <li>Include dès le départ une logique de statistiques => statsd + graphite
                     (ou un service équivalent : datadog)</li>
-                
+
                     </ul>
                 </section>
 
@@ -464,14 +466,14 @@ function smg_concertation_entity_load($entities, $type) {
 
                 <section>
                     <h2>Aggrégation de data : StatsD + Datadog</h2>
-                    
+
                     <ul>
                     <li>Gratuit avec un jour de rétention et intégré avec Chef</li>
                     <li>$15 / mois par serveur pour un an de rétention + gestion des alertes</li>
                     <li>Encore mieux : New Relic</li>
-                    <li>Stack serveur open source existe, mais en R.A.C.H.E, on ne passe pas 
+                    <li>Stack serveur open source existe, mais en R.A.C.H.E, on ne passe pas
                     plus de 10mn à mettre en place un service !</li>
-                
+
                     </ul>
                 </section>
 
